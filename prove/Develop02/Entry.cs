@@ -2,6 +2,10 @@ using System;
 
 public class Entry
 {
-    public List<Journal> _entries = new List<Journal>();
+    public string _entry;
 
+    public void Display()
+    {
+        Console.WriteLine(_entry);
+    }
 }

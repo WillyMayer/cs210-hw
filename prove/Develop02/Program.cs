@@ -6,29 +6,36 @@ class Program
     {
         Console.WriteLine("Welcome to the Journal Program!");
 
-        //while loop
+        //Displaying menu
         Menu displayMenu = new Menu();
         displayMenu.Display();
 
-        string stopLoop = "5";
-        string selectOption = "";
-        //Selecting option
+        
+        Journal journal = new Journal();
 
+        //Stop loop
+        string stopLoop = "5";
+        //Select option
+        string selectOption = "";
+
+        //While loop
         while (stopLoop != selectOption)
         {   
             Console.Write("What would you like to do? ");
             selectOption = Console.ReadLine();
 
             if (selectOption == "1")
-            {
-                //codeline
-
-                displayMenu.Display();
+            {   
+                Entry entry = new Entry();
+                entry._entry = Console.ReadLine();
+                journal._entries.Add(entry);
+                
+                
             } else if (selectOption == "2")
             {
-                //codeline
+                journal.Display();
 
-                displayMenu.Display();
+                //displayMenu.Display();
             } else if (selectOption == "3")
             {
                 //codeline
@@ -36,7 +43,6 @@ class Program
                 displayMenu.Display();
             } else if (selectOption == "4")
             {
-               //codeline
 
                 displayMenu.Display();
             } else if (selectOption == "5") 

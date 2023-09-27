@@ -1,8 +1,19 @@
 using System;
+using System.IO;
 
 public class Journal
 {
-    public string _entry;
-    public string _saveEntry;
-    public string _loadEntry;
+    public List<Entry> _entries = new List<Entry>();
+
+    public void Display()
+    {
+        foreach (Entry entry in _entries)
+        {
+            entry.Display();
+        }
+    }
+
 }
+
+
+
