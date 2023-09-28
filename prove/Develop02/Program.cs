@@ -3,7 +3,7 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {
+    {   
         Console.WriteLine("Welcome to the Journal Program!");
 
         //Displaying menu
@@ -26,9 +26,7 @@ class Program
 
             if (selectOption == "1")
             {   
-                Entry entry = new Entry();
-                entry._entry = Console.ReadLine();
-                journal._entries.Add(entry);
+                journal.Write();
                 
                 
             } else if (selectOption == "2")
@@ -38,12 +36,14 @@ class Program
                 //displayMenu.Display();
             } else if (selectOption == "3")
             {
-                //codeline
+                journal.ReadFile();
 
                 displayMenu.Display();
             } else if (selectOption == "4")
-            {
-
+            {   
+               
+               journal.SaveToFile();
+               
                 displayMenu.Display();
             } else if (selectOption == "5") 
             {
