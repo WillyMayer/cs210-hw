@@ -28,12 +28,12 @@ class Program
             {   
                 journal.Write();
                 
-                
+                displayMenu.Display();
             } else if (selectOption == "2")
             {
                 journal.Display();
 
-                //displayMenu.Display();
+                displayMenu.Display();
             } else if (selectOption == "3")
             {
                 journal.ReadFile();

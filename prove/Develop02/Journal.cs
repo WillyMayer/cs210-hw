@@ -2,22 +2,27 @@ using System;
 using System.IO;
 
 public class Journal
-{
+{   
+    public List<Entry> _prompts = new List<Entry>();
     public List<Entry> _entries = new List<Entry>();
 
     public void Write()
-    {
-        Console.Write("Write your enter: ");
+    {   
+        Prompt prompts = new Prompt();
+        prompts.Random();
+        Console.Write("> ");
         string newEntry = Console.ReadLine();
-
-        Entry entry = new Entry();
 
         //adding date
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
 
-        entry._entry = $"{dateText} - {newEntry}";
+        Entry entry = new Entry();
+        
+        entry._prompt = $"{dateText} - Prompt: {}";
+        entry._entry = $" {newEntry}";
 
+        //_entries.Add("asd");
         _entries.Add(entry);
     }
     public void Display()
@@ -25,7 +30,8 @@ public class Journal
 
         foreach (Entry entry in _entries)
         {
-            entry.Display();
+                entry.Display();
+                Console.WriteLine("");
         }
         
     }
