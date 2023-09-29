@@ -19,7 +19,7 @@ public class Journal
 
         Entry entry = new Entry();
         
-        entry._prompt = $"{dateText} - Prompt: {}";
+        entry._prompt = $"{dateText} - Prompt: ";
         entry._entry = $" {newEntry}";
 
         //_entries.Add("asd");
