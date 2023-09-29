@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 public class Journal
 {   
@@ -9,7 +10,7 @@ public class Journal
     public void Write()
     {   
         Prompt prompts = new Prompt();
-        prompts.Random();
+        string randomNumber = prompts.PromptGenerator();
 
         Console.Write("> ");
         string newEntry = Console.ReadLine();
@@ -18,12 +19,13 @@ public class Journal
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
 
+        Entry newPrompt = new Entry();
         Entry entry = new Entry();
         
-        entry._prompt = $"{dateText} - Prompt: {prompts._prompt}";
+        newPrompt._entry = $"{dateText} - Prompt: {prompts.PromptGenerator()}";
         entry._entry = $" {newEntry}";
 
-        //_entries.Add("asd");
+        _entries.Add(newPrompt);
         _entries.Add(entry);
     }
     public void Display()
@@ -31,10 +33,9 @@ public class Journal
 
         foreach (Entry entry in _entries)
         {
-                entry.Display();
-                Console.WriteLine("");
+            entry.Display();
         }
-        
+        Console.WriteLine();
     }
 
     public void SaveToFile()
