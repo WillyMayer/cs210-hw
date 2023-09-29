@@ -10,7 +10,8 @@ public class Journal
     public void Write()
     {   
         Prompt prompts = new Prompt();
-        string randomNumber = prompts.PromptGenerator();
+        string randomPrompt = prompts.PromptGenerator();
+        Console.WriteLine(randomPrompt);
 
         Console.Write("> ");
         string newEntry = Console.ReadLine();
@@ -21,12 +22,16 @@ public class Journal
 
         Entry newPrompt = new Entry();
         Entry entry = new Entry();
+        Entry blank = new Entry();
+
         
-        newPrompt._entry = $"{dateText} - Prompt: {prompts.PromptGenerator()}";
-        entry._entry = $" {newEntry}";
+        newPrompt._entry = $"{dateText} - Prompt: {randomPrompt}";
+        entry._entry = $"{newEntry}";
+        blank._entry = "";
 
         _entries.Add(newPrompt);
         _entries.Add(entry);
+        _entries.Add(blank);
     }
     public void Display()
     {   
@@ -34,14 +39,18 @@ public class Journal
         foreach (Entry entry in _entries)
         {
             entry.Display();
+            Console.WriteLine("");
         }
-        Console.WriteLine();
+    
     }
 
     public void SaveToFile()
     {   
+        Console.WriteLine("What is the filename?");
+        Console.Write("> ");
+        string filename = Console.ReadLine();
+
         Console.WriteLine("Journal saved");
-        string filename = "entries.txt";
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
@@ -54,16 +63,21 @@ public class Journal
        
     public void ReadFile()
     {   
-        Console.WriteLine("Entries loaded");
-        string filename = "entries.txt";
+        Console.WriteLine("What is the filename? ");
+        Console.Write("> ");
+
+        string filename = Console.ReadLine();
         string[] lines = File.ReadAllLines(filename);
 
-        foreach (string line in lines)
-        { 
+         foreach (string line in lines)
+            { 
             Entry entry = new Entry();
             entry._entry = line;
             _entries.Add(entry);
-        }
+            }
+
+        Console.WriteLine("Entries loaded");
+ 
     }
 
 }
