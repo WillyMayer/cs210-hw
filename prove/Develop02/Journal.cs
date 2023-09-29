@@ -3,13 +3,14 @@ using System.IO;
 
 public class Journal
 {   
-    public List<Entry> _prompts = new List<Entry>();
+    public List<Prompt> _prompts = new List<Prompt>();
     public List<Entry> _entries = new List<Entry>();
 
     public void Write()
     {   
         Prompt prompts = new Prompt();
         prompts.Random();
+
         Console.Write("> ");
         string newEntry = Console.ReadLine();
 
@@ -19,7 +20,7 @@ public class Journal
 
         Entry entry = new Entry();
         
-        entry._prompt = $"{dateText} - Prompt: ";
+        entry._prompt = $"{dateText} - Prompt: {prompts._prompt}";
         entry._entry = $" {newEntry}";
 
         //_entries.Add("asd");
