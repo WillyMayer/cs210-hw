@@ -4,8 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public class Journal
 {   
-    public List<Prompt> _prompts = new List<Prompt>();
-    public List<Entry> _entries = new List<Entry>();
+    public List<Entry> journal = new List<Entry>();
 
     public void Write()
     {   
@@ -29,14 +28,14 @@ public class Journal
         entry._entry = $"{newEntry}";
         blank._entry = "";
 
-        _entries.Add(newPrompt);
-        _entries.Add(entry);
-        _entries.Add(blank);
+        journal.Add(newPrompt);
+        journal.Add(entry);
+        journal.Add(blank);
     }
     public void Display()
     {   
 
-        foreach (Entry entry in _entries)
+        foreach (Entry entry in journal)
         {
             entry.Display();
             Console.WriteLine("");
@@ -54,7 +53,7 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            foreach (Entry entry in _entries)
+            foreach (Entry entry in journal)
             {    
             outputFile.WriteLine($"{entry._entry}");
             }
@@ -73,7 +72,7 @@ public class Journal
             { 
             Entry entry = new Entry();
             entry._entry = line;
-            _entries.Add(entry);
+            journal.Add(entry);
             }
 
         Console.WriteLine("Entries loaded");
