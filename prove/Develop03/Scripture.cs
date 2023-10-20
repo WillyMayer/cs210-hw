@@ -3,10 +3,12 @@ using System.Runtime.CompilerServices;
 
 public class Scripture
 {
-    Reference scripture = new Reference(); 
-    public void GetRenderedText()
+    private List<Word> _words;
+
+    public void HideWords(int amount)
     {
-        
+        Random random = new Random();
+
     }
 }
 
