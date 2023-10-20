@@ -6,7 +6,7 @@ class Program
     {   
         int stopLoop = 1;
     
-        Reference references = new Reference("John", "17", "3");
+        Reference references = new Reference("John", "14", "27");
         Scripture scripture = new Scripture(references, "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.");
 
         //Exceeding requirements
