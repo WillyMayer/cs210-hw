@@ -9,6 +9,13 @@ class Program
         Reference references = new Reference("John", "17", "3");
         Scripture scripture = new Scripture(references, "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.");
 
+        //Exceeding requirements
+        //Start the program with a welcome message 
+        Console.Clear();
+        Welcome welcome = new Welcome();
+        welcome.WelcomeMessage();
+        Console.ReadLine();
+        
         while (stopLoop != 0)
         {   
             Console.Clear();
