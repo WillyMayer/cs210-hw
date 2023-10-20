@@ -5,9 +5,9 @@ class Program
     static void Main(string[] args)
     {   
         int stopLoop = 1;
-
-        Reference references = new Reference("John", "17:3 ", "");
-        Scripture scripture = new Scripture(references, "For behold thus saith the Lord I will liken thee O house of Israel like unto a tame olive tree which a man took and nourished in his vineyard and it grew and waxed old and began to decay");
+    
+        Reference references = new Reference("John", "17", "3");
+        Scripture scripture = new Scripture(references, "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.");
 
         while (stopLoop != 0)
         {   
@@ -20,8 +20,10 @@ class Program
 
             if (next != "quit")
             {
-                //scripture.HideRandomWords();
-                //Console.WriteLine(scripture.GetDisplayText());
+                Random random = new Random();
+                int number = random.Next(3, 5);
+                scripture.HideWords(number);
+                Console.WriteLine(scripture.GetDisplayText());
             }
 
             else if (next == "quit")
@@ -29,10 +31,13 @@ class Program
                 stopLoop = 0;
             }
 
-            //if (scripture.IsHidden())
-            /*
-            StopLoop = 0;
-            */
+            if (scripture.IsHidden())
+            {
+                Console.WriteLine();
+                Console.WriteLine("Congrats! Press enter to finish.");
+                Console.ReadLine();
+                stopLoop = 0;
+            }    
         }
     }
 }

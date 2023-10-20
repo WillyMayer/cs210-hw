@@ -5,9 +5,9 @@ public class Word
     private string _words;
     private bool _hidden; 
 
-    public Word(string text)
+    public Word(string words)
     {
-        _words = text;
+        _words = words;
         _hidden = false;
     }
 
@@ -26,6 +26,13 @@ public class Word
     }
     public string GetDisplayText()
     {
-        return _hidden ? new string('_', _words.Length) : _words;
+        if (_hidden)
+        {
+           return new string('_', _words.Length);
+        }
+        else
+        {
+            return _words;
+        }
     }
 }

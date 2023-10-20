@@ -15,14 +15,20 @@ public class Scripture
     {
         Random random = new Random();
 
+        for (int i = 0; i < amount; i++)
+        {
+            int index = random.Next(_words.Count);
+            _words[index].Hide();
+        }
+
     }
     public string GetDisplayText()
     {
         
-        return $"{_reference.DisplayScripture()} - {_words.Select(word => word.GetDisplayText()).Aggregate((a, b) => a + " " + b)}";
+        return $"{_reference.DisplayScripture()}{_words.Select(word => word.GetDisplayText()).Aggregate((a, b) => a + " " + b)}";
     }
 
-    public bool IsCompletelyHidden()
+    public bool IsHidden()
     {
         return _words.All(word => word.IsHidden());
     }
