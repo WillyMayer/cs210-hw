@@ -11,7 +11,7 @@ public class Assignment
         _topic = topic;
     }
 
-    public string GetName()
+    public string GetStudentName()
     {
         return _name;
     }
@@ -20,7 +20,7 @@ public class Assignment
     {
         return _topic;
     }
-    public string GetSumary()
+    public string GetSummary()
     {
         return $"{_name} - {_topic}";
     }
