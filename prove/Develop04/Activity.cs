@@ -5,7 +5,7 @@ public class Activity
 {
     private string _activityName;
     private string _description;
-    private int _duration;
+    public int _duration;
 
     public Activity(string activityName, string description, int duration)
     {
@@ -26,11 +26,11 @@ public class Activity
 
     public void EndingMessage()
     {
-        Console.Clear();
+        Console.WriteLine("");
         Console.WriteLine("Well done!!");
         Thread.Sleep(1000);
-        Console.WriteLine("");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName}");
+        Console.WriteLine("");
     }
 
     public void ShowingSpinner(int second)
@@ -59,7 +59,7 @@ public class Activity
     {
         for (int i = second; i > 0; i--)
         {
-            Console.WriteLine($"Time remaining: {i} seconds");
+            Console.Write($".");
             Thread.Sleep(1000);
         }
     }

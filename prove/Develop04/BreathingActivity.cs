@@ -9,8 +9,22 @@ public class BreathingActivity : Activity
 
     public void RunActivity()
     {
-            base.StartingMessage();
+        base.StartingMessage();
 
-            base.EndingMessage();
+        
+        int durationInSeconds = base._duration;
+        DateTime endTime = DateTime.Now.AddSeconds(durationInSeconds);
+
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("Breathe in");
+            CountdownTimer(5);
+            Console.WriteLine("");
+            Console.Write("Breathe out");
+            CountdownTimer(5);
+            Console.WriteLine("");
+
+        }
+        base.EndingMessage();
     }
 }
