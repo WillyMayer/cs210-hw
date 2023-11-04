@@ -35,24 +35,25 @@ public class Activity
 
     public void ShowingSpinner(int second)
     {
-        List<string> _animationString = new List<string>();
-        _animationString.Add("|");
-        _animationString.Add("/");
-        _animationString.Add("-");
-        _animationString.Add("\\");
-
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(second);
-
-        int i = 0;
-
-        while (DateTime.Now > endTime)
+        List<string> _animationString = new List<string>
         {
-            string s = _animationString[i];
-            Console.Write(s);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
+           "|",
+            "/",
+            "-",
+            "\\"
+        };
+
+        int animationIndex = 0;
+        DateTime endTime = DateTime.Now.AddSeconds(second);
+
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("\r" + _animationString[animationIndex]);
+            animationIndex = (animationIndex + 1) % _animationString.Count;
+            Thread.Sleep(100);
         }
+
+        Console.Write("\r");
     }
 
     public void CountdownTimer(int second)

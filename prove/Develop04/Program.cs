@@ -59,6 +59,14 @@ class Program
             {
                 //Quit loop
             }
+
+            else
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Please select a below option");
+                Console.WriteLine("");
+                menu.DisplayMenu();
+            }
         }
 
     }

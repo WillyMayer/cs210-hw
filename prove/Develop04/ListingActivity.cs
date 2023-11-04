@@ -8,18 +8,24 @@ public class ListingActivity : Activity
     //Adding questions
     public ListingActivity(string activityName, string description, int duration) : base(activityName, description, duration)
     {
-        _randomQuestions.Add("Who are people that you appreciate?");
-        _randomQuestions.Add("What are personal strengths of yours?");
-        _randomQuestions.Add("Who are people that you have helped this week?");
-        _randomQuestions.Add("When have you felt the Holy Ghost this month?");
-        _randomQuestions.Add("Who are some of your personal heroes?");
+        _randomQuestions = new List<string>
+        {   
+            "Who are people that you appreciate?",
+            "What are personal strengths of yours?",
+            "Who are people that you have helped this week?",
+            "When have you felt the Holy Ghost this month?",
+            "Who are some of your personal heroes?",
+        };
+
     }
     public void RandomQuestions()
     {
         Random rnd = new Random();
         int index = rnd.Next(_randomQuestions.Count);
         string randomQuestion = _randomQuestions[index];
-        Console.WriteLine("Random Question: " + randomQuestion);
+        Console.WriteLine("");
+        Console.WriteLine("Ponder the next question");
+        Console.WriteLine($"-- {randomQuestion} --");
     }
 
     public void RunActivity()
@@ -34,11 +40,9 @@ public class ListingActivity : Activity
         while (DateTime.Now < endTime)
         {
 
-            Console.WriteLine("Write down a blessing: ");
+            Console.Write("> ");
             string blessing = Console.ReadLine();
-            Console.WriteLine($"You wrote: {blessing}");
-
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
         }
 
         base.EndingMessage();
