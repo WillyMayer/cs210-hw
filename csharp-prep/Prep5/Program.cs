@@ -29,7 +29,7 @@ class Program
 
     static int askingFavNumber()
         {
-            Console.Write("Please enter your favorite name: ");
+            Console.Write("Please enter your favorite number: ");
             string stringNumber = Console.ReadLine();
             int favNumber = int.Parse(stringNumber);
 
