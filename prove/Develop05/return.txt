@@ -1,3 +1,0 @@
-500
-SimpleGoal;Pray;more pray;300;True
-SimpleGoal;Nothing;nothing;200;True

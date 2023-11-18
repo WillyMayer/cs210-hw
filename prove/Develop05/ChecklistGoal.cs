@@ -48,7 +48,7 @@ public class ChecklistGoal : Goal
         _threshold = int.Parse(Console.ReadLine());
 
         // set the _points
-        Console.Write("What is the _points for accomplishing it that many times? ");
+        Console.Write("How many points you will earn for accomplishing it that many times? ");
         __points = int.Parse(Console.ReadLine());
     }
 
