@@ -11,8 +11,7 @@ class Program
         string stopLoop = "6";
 
         string option = "";
-
-        //Welcome message
+        
         Console.WriteLine("Hi! Welcome to the Goal Tracker system.");
         Console.WriteLine();
 

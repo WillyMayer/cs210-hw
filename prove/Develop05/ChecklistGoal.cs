@@ -34,20 +34,16 @@ public class ChecklistGoal : Goal
         Console.Write("What is the name of your goal? ");
         _name = Console.ReadLine();
 
-        // set description
         Console.Write("What is a short description of it? ");
         _desc = Console.ReadLine();
 
-        // set EXP points
         Console.Write("What is the amount of points associated with this goal? ");
         string expPtsText = Console.ReadLine();
         SetPoints(int.Parse(expPtsText));
 
-        // set times to complete goal
         Console.Write("How many times does this goal need to be accomplished? ");
         _threshold = int.Parse(Console.ReadLine());
 
-        // set the _points
         Console.Write("How many points you will earn for accomplishing it that many times? ");
         __points = int.Parse(Console.ReadLine());
     }
@@ -64,7 +60,7 @@ public class ChecklistGoal : Goal
 
     public override int CompleteGoal()
     {
-        if (!_completed) // if goal is not complete
+        if (!_completed) 
         {
             _timesCompleted++;
             _completed = _timesCompleted == _threshold;
@@ -74,7 +70,6 @@ public class ChecklistGoal : Goal
                 Console.WriteLine($"You earned {GetPoints()} as well as a _points of {__points} points!");
                 return GetPoints() + __points;
             }
-            // else (saving a few lines)
             Console.WriteLine($"Congratulations! You earned {GetPoints()} points.");
             return GetPoints();
         }

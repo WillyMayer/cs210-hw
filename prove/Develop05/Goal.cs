@@ -33,21 +33,18 @@ public abstract class Goal
 
     public virtual void SetData()
     {
-        // set name
+
         Console.Write("What is the name of your goal? ");
         _name = Console.ReadLine();
 
-        // set description
         Console.Write("What is a short description of it? ");
         _desc = Console.ReadLine();
 
-        // set EXP points
         Console.Write("What is the amount of points associated with this goal? ");
         string expPtsText = Console.ReadLine();
         SetPoints(int.Parse(expPtsText));
     }
 
-    // ABSTRACT METHODS
     public abstract string GetDataString();
     public abstract void LoadDataArray(string[] values);
     public abstract void DisplayGoal();
