@@ -1,6 +1,6 @@
 using System;
 
-public abstract class Account : User
+public abstract class Account 
 {
     protected int _savings;
 
